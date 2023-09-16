@@ -27,4 +27,4 @@ joblib.dump(clf, model_path)
 
 with open('metrics.txt', 'w') as fw:
   fw.write(f"\nAccuracy: {accuracy_score(y_test, clf.predict(X_test))} accuracy.")
-  fw.write(f"\n{classification_report(y_test,clf.predict(X_test))})
+  fw.write(f"\n{classification_report(y_test,clf.predict(X_test))}")
