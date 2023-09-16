@@ -1,8 +1,8 @@
 from sklearn.datasets import load_iris
 from sklearn.model_selection import train_test_split
-from sklearn.metrics import accuracy_score
+from sklearn.metrics import accuracy_score, classification_report
 from sklearn.ensemble import RandomForestClassifier
-from sklearn.svm import SVC
+from sklearn.linear_model import Perceptron
 import joblib
 import os
 
@@ -17,7 +17,7 @@ y = iris.target
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
 # Train a Random Forest classifier
-clf = SVC()
+clf = Perceptron(max_iter = 1)
 clf.fit(X_train, y_train)
 
 # Save the trained model
@@ -27,5 +27,4 @@ joblib.dump(clf, model_path)
 
 with open('metrics.txt', 'w') as fw:
   fw.write(f"\nAccuracy: {accuracy_score(y_test, clf.predict(X_test))} accuracy.")
-
-# print(f"Finished model training with {accuracy_score(y_test, clf.predict(X_test))} accuracy.")
+  fw.write(f"\n{classification_report(y_test,clf.predict(X_test))})
