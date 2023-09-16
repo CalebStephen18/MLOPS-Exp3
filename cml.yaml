@@ -1,4 +1,4 @@
-name: your-workflow-name
+name: ml-ops-exp3
 on: [push]
 jobs:
   run:
